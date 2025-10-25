@@ -1,0 +1,140 @@
+/* General Body Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f1f5f9; /* slate-100 */
+    color: #1e293b; /* slate-800 */
+    margin: 0;
+}
+
+/* Main container to center the card */
+.main-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* The white card for login/register */
+.card {
+    max-width: 28rem; /* max-w-md */
+    width: 100%;
+    background-color: #ffffff;
+    padding: 2rem; /* p-8 */
+    border-radius: 1rem; /* rounded-2xl */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+}
+
+/* Card Header Section */
+.card-header {
+    text-align: center;
+    margin-bottom: 2rem; /* mb-8 */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem; /* mb-4 */
+    text-decoration: none;
+}
+
+.logo-icon {
+    height: 2rem; /* h-8 */
+    width: 2rem; /* w-8 */
+    color: #2563eb; /* text-blue-600 */
+}
+
+.logo-text {
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: 700; /* font-bold */
+    color: #1e293b; /* text-slate-800 */
+    margin-left: 0.5rem; /* ml-2 */
+}
+
+.title {
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: 700; /* font-bold */
+    color: #0f172a; /* text-slate-900 */
+    margin: 0;
+}
+
+.subtitle {
+    color: #64748b; /* text-slate-500 */
+    margin-top: 0.5rem; /* mt-2 */
+}
+
+/* Form Styles */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* space-y-6 */
+}
+
+.form-label {
+    display: block;
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 500; /* font-medium */
+    color: #334155; /* text-slate-700 */
+    margin-bottom: 0.25rem; /* Corresponds to mt-1 on the input's div */
+}
+
+.form-input {
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+    padding: 0.75rem 1rem; /* px-4 py-3 */
+    border: 1px solid #cbd5e1; /* border border-slate-300 */
+    border-radius: 0.5rem; /* rounded-lg */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+    transition: all 150ms ease-in-out;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #2563eb; /* focus:border-blue-500 */
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5); /* focus:ring-2 focus:ring-blue-500 */
+}
+
+/* Button Styles */
+.submit-button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0.75rem 1rem; /* py-3 px-4 */
+    border: 1px solid transparent;
+    border-radius: 0.5rem; /* rounded-lg */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 500; /* font-medium */
+    color: #ffffff; /* text-white */
+    background-color: #2563eb; /* bg-blue-600 */
+    cursor: pointer;
+    transition: background-color 150ms ease-in-out;
+}
+
+.submit-button:hover {
+    background-color: #1d4ed8; /* hover:bg-blue-700 */
+}
+
+.submit-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px white, 0 0 0 4px #2563eb; /* focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 */
+}
+
+/* Link Styles */
+.link {
+    font-weight: 500; /* font-medium */
+    color: #2563eb; /* text-blue-600 */
+    text-decoration: none;
+}
+
+.link:hover {
+    color: #3b82f6; /* hover:text-blue-500 */
+    text-decoration: underline; /* hover:underline */
+}
+
+.bottom-link {
+    margin-top: 2rem; /* mt-8 */
+    text-align: center;
+    font-size: 0.875rem; /* text-sm */
+    color: #475569; /* text-slate-600 */
+}
