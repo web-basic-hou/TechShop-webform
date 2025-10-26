@@ -187,6 +187,9 @@ body {
     font-weight: 500;
 }
 
+.product-image {
+    max-width: 100px;
+}
 /* Layout */
 .content-layout {
     display: flex;

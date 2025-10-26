@@ -1,4 +1,4 @@
-/* General Body Styles */
+﻿/* General Body Styles */
 body {
   font-family: "Inter", sans-serif;
   background-color: #f8fafc; /* slate-50 */
@@ -307,9 +307,8 @@ body {
 }
 
 .product-image {
-  height: 14rem;
-  width: 100%;
-  object-fit: cover;
+    width: 70%;
+    height: 70%;
 }
 .product-info {
   padding: 1.5rem;
@@ -462,3 +461,4 @@ body {
   color: #94a3b8;
   font-size: 0.875rem;
 }
+

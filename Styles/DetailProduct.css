@@ -164,7 +164,7 @@ body {
 
 /* Product Gallery */
 .product-gallery .main-image {
-  width: 100%;
+  width: 60%;
   border-radius: 0.5rem;
   margin-bottom: 1rem;
 }

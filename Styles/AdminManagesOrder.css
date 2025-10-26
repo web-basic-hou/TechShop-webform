@@ -1,4 +1,4 @@
-
+﻿
 :root {
   --color-slate-50: #f8fafc;
   --color-slate-100: #f1f5f9;
@@ -28,6 +28,8 @@
     0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 
+
+
 body {
   font-family: "Inter", sans-serif;
   background-color: var(--color-slate-100);
@@ -37,9 +39,9 @@ body {
   overflow: hidden;
 }
 
-.body-container{
-  display: flex;
-  flex: 1;
+.body-container {
+    display: flex;
+    flex: 1;
 }
 
 .icon {

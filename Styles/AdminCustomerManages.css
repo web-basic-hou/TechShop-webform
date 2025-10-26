@@ -1,4 +1,4 @@
-
+﻿
 :root {
   --color-slate-50: #f8fafc;
   --color-slate-100: #f1f5f9;
@@ -28,7 +28,7 @@ body {
   overflow: hidden;
 }
 
-.body-container{
+.body-container {
     display: flex;
     flex: 1;
 }
