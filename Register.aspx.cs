@@ -37,7 +37,9 @@ namespace TechShop {
 
             Users user = new Users {
                 username = txtEmail.Text,
-                password = txtPassword.Text
+                password = txtPassword.Text,
+                fullname = txtFullName.Text,
+                role = "user"
             };
             List<Users> userList = new List<Users>();
 

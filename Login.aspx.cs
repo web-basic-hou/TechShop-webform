@@ -23,15 +23,11 @@ namespace TechShop {
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(txtPassword.Text) || txtPassword.Text.Length <= 8) {
-                lblErrorPassword.Text = "mật khẩu phải có 8 chữ số";
+            if (string.IsNullOrWhiteSpace(txtPassword.Text)) {
+                lblErrorPassword.Text = "mật khẩu k đc để trống";
                 return;
             }
-
-            Users user = new Users {
-                username = txtEmail.Text,
-                password = txtPassword.Text
-            };
+            TechShop.App_Code.Models.Users user = new TechShop.App_Code.Models.Users();
             List<Users> userList = new List<Users>();
 
             if (Application.Get("users") != null)
@@ -39,6 +35,7 @@ namespace TechShop {
             bool found = false;
             for (int i = 0; i < userList.Count; ++i) {
                 if (userList[i].username == txtEmail.Text) {
+                    user = userList[i];
                     found = true;
                     break;
                 }
@@ -51,10 +48,10 @@ namespace TechShop {
 
             Session.Add("username", user.username);
 
-            if (user.role == "admin") {
-                Response.Redirect("/AdminDashboard.aspx");
+            if (user.role.Equals("admin")) {
+                Response.Redirect("AdminDashboard.aspx");
             }else 
-                Response.Redirect("/Home.aspx");
+                Response.Redirect("Home.aspx");
         }
         protected void ReloadForm() {
             txtEmail.Text = "";
