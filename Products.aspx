@@ -76,72 +76,30 @@
 
                 <div class="product-grid-container">
                     <div class="mini-head">
-                        <p>Hiển thị <span class="font-semibold">8</span> trên <span class="font-semibold">50</span> sản phẩm</p>
+                        <p>Hiển thị <span class="font-semibold">6</span> trên <span class="font-semibold">50</span> sản phẩm</p>
                     </div>
                     
                     <div class="product-grid">
-                        <div class="product-card">
-                            <a href="DetailProduct.aspx">
-                                <img class="product-image" src="./assets/images/cucGach2.png" alt="iPhone 15">
-                            </a>
-                            <div class="product-info">
-                                <h3 class="product-name">iPhone 15 Pro Max 256GB</h3>
-                                <p class="product-price">30.990.000₫</p>
-                                <button class="add-to-cart-btn">Thêm vào giỏ</button>
-                            </div>
-                        </div>
-                        <div class="product-card">
-                            <img class="product-image" src="./assets/images/cucGach2.png" alt="iPhone 15">
-                            <div class="product-info">
-                                <h3 class="product-name">iPhone 15 Pro Max 256GB</h3>
-                                <p class="product-price">30.990.000₫</p>
-                                <button class="add-to-cart-btn">Thêm vào giỏ</button>
-                            </div>
-                        </div>
-                        <div class="product-card">
-                            <img class="product-image" src="./assets/images/cucGach2.png" alt="iPhone 15">
-                            <div class="product-info">
-                                <h3 class="product-name">iPhone 15 Pro Max 256GB</h3>
-                                <p class="product-price">30.990.000₫</p>
-                                <button class="add-to-cart-btn">Thêm vào giỏ</button>
-                            </div>
-                        </div>
-                        <div class="product-card">
-                            <img class="product-image" src="./assets/images/cucGach2.png" alt="iPhone 15">
-                            <div class="product-info">
-                                <h3 class="product-name">iPhone 15 Pro Max 256GB</h3>
-                                <p class="product-price">30.990.000₫</p>
-                                <button class="add-to-cart-btn">Thêm vào giỏ</button>
-                            </div>
-                        </div>
-                        <div class="product-card">
-                            <img class="product-image" src="./assets/images/cucGach2.png" alt="iPhone 15">
-                            <div class="product-info">
-                                <h3 class="product-name">iPhone 15 Pro Max 256GB</h3>
-                                <p class="product-price">30.990.000₫</p>
-                                <button class="add-to-cart-btn">Thêm vào giỏ</button>
-                            </div>
-                        </div>
-                        <div class="product-card">
-                            <img class="product-image" src="./assets/images/cucGach2.png" alt="iPhone 15">
-                            <div class="product-info">
-                                <h3 class="product-name">iPhone 15 Pro Max 256GB</h3>
-                                <p class="product-price">30.990.000₫</p>
-                                <button class="add-to-cart-btn">Thêm vào giỏ</button>
-                            </div>
-                        </div>
+                        <asp:Repeater ID="rptProducts" runat="server">
+                            <ItemTemplate>
+                                <div class="product-card">
+                                    <a href='<%# "DetailProduct.aspx?id=" + Eval("id") %>'>
+                                        <img class="product-image" src='<%# ResolveUrl(Eval("imageUrl").ToString()) %>' alt='<%# Eval("productName") %>' />
+                                    </a>
+                                    <div class="product-info">
+                                        <h3 class="product-name"><%# Eval("productName") %></h3>
+                                        <p class="product-price"><%# Eval("value") %></p>
+                                        <button class="add-to-cart-btn">Thêm vào giỏ</button>
+                                    </div>
+                                </div>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                        
                     </div>
 
                     <div class="pagination-container">
-                        <nav class="pagination">
-                            <a href="#" class="page-link page-arrow"><span class="sr-only">Previous</span><svg class="icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" /></svg></a>
-                            <a href="#" class="page-link active">1</a>
-                            <a href="#" class="page-link">2</a>
-                            <a href="#" class="page-link desktop-only">3</a>
-                            <span class="page-link ellipsis">...</span>
-                            <a href="#" class="page-link desktop-only">8</a>
-                            <a href="#" class="page-link page-arrow"><span class="sr-only">Next</span><svg class="icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" /></svg></a>
-                        </nav>
+                        <asp:Button ID="btnPrev" runat="server" Text="<-Trang trước" CssClass="page-link" OnClick="btnPrev_Click" />
+                        <asp:Button ID="btnNext" runat="server" Text="Trang sau->" CssClass="page-link" OnClick="btnNext_Click" />
                     </div>
                 </div>
             </div>

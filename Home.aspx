@@ -51,6 +51,7 @@
             <div class="featured-products">
                 <div class="container">
                     <h2 class="section-title">Sản phẩm nổi bật</h2>
+
                     <div class="product-grid">
                         <asp:Repeater ID="rptProducts" runat="server">
                             <ItemTemplate>
@@ -58,7 +59,7 @@
                                     <div class="product-image-container">
                                         <img src="./Asset/images/cucGach.png" alt='san pham' class="product-image" />
                                         <div class="product-overlay">
-                                            <a href="DetailProduct.aspx" class="details-button">Xem chi tiết</a>
+                                            <a href='<%# "DetailProduct.aspx?id=" + Eval("id") %>' class="details-button">Xem chi tiết</a>
                                         </div>
                                     </div>
                                     <div class="product-info">

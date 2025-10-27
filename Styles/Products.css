@@ -307,8 +307,9 @@ body {
 }
 
 .product-image {
-    width: 70%;
-    height: 70%;
+    width: 50%;
+    height: 50%;
+    justify-self:center;
 }
 .product-info {
   padding: 1.5rem;

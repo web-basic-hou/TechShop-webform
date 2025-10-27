@@ -49,59 +49,45 @@
             
             <div class="product-container">
                 <div class="product-main-details">
+                    
                     <div class="product-gallery">
-                        <img class="main-image" src="./assets/images/cucGach.png" alt="iPhone 15 Pro Max">
+                        <asp:Image ID="imgProduct" runat="server" CssClass="main-image" />
                     </div>
 
                     <div class="product-info">
-                        <h1 class="product-title">iPhone 15 Pro Max 256GB | Chính hãng VN/A</h1>
-                        <p class="price-container"><span class="current-price">30.990.000₫</span> <span class="original-price">34.990.000₫</span></p>
+                        <h1 class="product-title"><asp:Label ID="lblProductName" runat="server" /></h1>
+                        <p class="price-container">
+                            <span class="current-price"><asp:Label ID="lblProductPrice" runat="server" /></span>
+                        </p>
 
-                        <div class="options-group">
-                            <p class="options-label">Màu sắc:</p>
-                            <div class="color-options">
-                                <button class="color-swatch" style="background-color: #1e293b;" title="Titan Đen"></button>
-                                <button class="color-swatch" style="background-color: #1e3a8a;" title="Titan Xanh"></button>
-                                <button class="color-swatch" style="background-color: #e2e8f0;" title="Titan Trắng"></button>
-                            </div>
-                        </div>
-                        <div class="options-group">
-                            <p class="options-label">Dung lượng:</p>
-                            <div class="storage-options">
-                                <button class="storage-option active">256GB</button>
-                                <button class="storage-option">512GB</button>
-                                <button class="storage-option">1TB</button>
-                            </div>
-                        </div>
-                        <div class="options-group">
-                            <p class="options-label">Số lượng:</p>
-                            <div class="quantity-selector">
-                                <button class="quantity-btn">-</button>
-                                <input type="text" value="1" class="quantity-input">
-                                <button class="quantity-btn">+</button>
-                            </div>
-                        </div>
-                        
-                        <div class="action-buttons">
-                            <button class="btn btn-primary">Thêm vào giỏ</button>
-                            <a href="Pay.aspx" class="btn btn-secondary">Mua ngay</a>
-                        </div>
+                        <p><strong>Màu sắc:</strong> <asp:Label ID="lblProductColor" runat="server" /></p>
+                        <p><strong>Dung lượng:</strong> <asp:Label ID="lblProductCapacity" runat="server" /></p>
+
+                        <h3>Mô tả:</h3>
+                        <p><asp:Label ID="lblProductDesc" runat="server" /></p>
+
+                        <h3>Thông số kỹ thuật:</h3>
+                        <p><asp:Label ID="lblProductSpec" runat="server" /></p>
                     </div>
                 </div>
             </div>
 
-            <div class="product-description-tabs">
-                <nav class="tabs-nav">
-                    <a href="#" class="tab-link active">Mô tả sản phẩm</a>
-                    <a href="#" class="tab-link">Thông số kỹ thuật</a>
-                    <a href="#" class="tab-link">Đánh giá</a>
-                </nav>
-                <div class="tab-content">
-                    <h3 class="tab-content-title">Thiết kế chuẩn Pro, bền bỉ và nhẹ hơn</h3>
-                    <p>
-                        iPhone 15 Pro là chiếc iPhone đầu tiên có thiết kế từ titan chuẩn hàng không vũ trụ, sử dụng cùng hợp kim trên tàu vũ trụ trong các sứ mệnh Sao Hỏa.
-                        Titan là một trong những kim loại có tỷ lệ độ bền trên trọng lượng tốt nhất, tạo nên các phiên bản Pro nhẹ nhất từ trước đến nay của chúng tôi. Bạn sẽ nhận thấy sự khác biệt ngay khi cầm trên tay.
-                    </p>
+            <div class="related-products-section">
+                <h2 class="section-title">Sản phẩm liên quan</h2>
+                <div class="related-products-grid">
+                    <asp:Repeater ID="rptRelatedProducts" runat="server">
+                        <ItemTemplate>
+                            <div class="related-product-card">
+                                <a href='<%# "DetailProduct.aspx?id=" + Eval("id") %>'>
+                                    <img class="related-image" src='<%# ResolveUrl(Eval("imageUrl").ToString()) %>' alt='<%# Eval("productName") %>' />
+                                </a>
+                                <div class="related-info">
+                                    <h3 class="related-name"><%# Eval("productName") %></h3>
+                                    <p class="related-price"><%# Eval("value") %></p>
+                                </div>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
                 </div>
             </div>
         </main>
