@@ -9,14 +9,12 @@ using TechShop.App_Code.Models;
 namespace TechShop {
     public partial class Register : System.Web.UI.Page {
         protected void Page_Load(object sender, EventArgs e) {
-            
+            if (!IsPostBack) {
+                ReloadForm();
+            }
         }
 
         protected void Register_click(object sender, EventArgs e) {
-            lblErrorEmail.Text = "";
-            lblErrorPassword.Text = "";
-            lblErrorConfirmPassword.Text = "";
-
             if (string.IsNullOrWhiteSpace(txtFullName.Text)) {
                 lblErrorFullName.Text = "tên ng dùng k đc trống";
                 return;
@@ -56,6 +54,17 @@ namespace TechShop {
             userList.Add(user);
 
             Application.Set("users", userList);
+
+            ReloadForm();
+
+            Response.Redirect("/Login.aspx");
+        }
+
+        private void ReloadForm() {
+            txtEmail.Text = "";
+            txtFullName.Text = "";
+            txtPassword.Text = "";
+            txtConfirmPassword.Text = "";
         }
     }
 }

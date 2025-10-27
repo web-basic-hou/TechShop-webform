@@ -52,47 +52,22 @@
                 <div class="container">
                     <h2 class="section-title">Sản phẩm nổi bật</h2>
                     <div class="product-grid">
-                        <div class="product-card">
-                            <div class="product-image-container">
-                                <img src="./asset/images/cucGach.png" class="product-image" alt="iPhone 15">
-                                <div class="product-overlay"><a href="DetailProduct.aspx" class="details-button">Xem chi tiết</a></div>
-                            </div>
-                            <div class="product-info">
-                                <h3 class="product-name">iPhone 15 Pro Max 256GB</h3>
-                                <p class="product-price">30.990.000₫</p>
-                            </div>
-                        </div>
-
-                        <div class="product-card">
-                            <div class="product-image-container">
-                                <img src="./asset/images/cucGach.png" class="product-image" alt="iPhone 15">
-                                <div class="product-overlay"><a href="DetailProduct.aspx" class="details-button">Xem chi tiết</a></div>
-                            </div>
-                            <div class="product-info">
-                                <h3 class="product-name">iPhone 15 Pro Max 256GB</h3>
-                                <p class="product-price">30.990.000₫</p>
-                            </div>
-                        </div>
-                        <div class="product-card">
-                            <div class="product-image-container">
-                                <img src="./asset/images/cucGach.png" class="product-image" alt="iPhone 15">
-                                <div class="product-overlay"><a href="DetailProduct.aspx" class="details-button">Xem chi tiết</a></div>
-                            </div>
-                            <div class="product-info">
-                                <h3 class="product-name">iPhone 15 Pro Max 256GB</h3>
-                                <p class="product-price">30.990.000₫</p>
-                            </div>
-                        </div>
-                        <div class="product-card">
-                            <div class="product-image-container">
-                                <img src="./asset/images/cucGach.png" class="product-image" alt="iPhone 15">
-                                <div class="product-overlay"><a href="DetailProduct.aspx" class="details-button">Xem chi tiết</a></div>
-                            </div>
-                            <div class="product-info">
-                                <h3 class="product-name">iPhone 15 Pro Max 256GB</h3>
-                                <p class="product-price">30.990.000₫</p>
-                            </div>
-                        </div>
+                        <asp:Repeater ID="rptProducts" runat="server">
+                            <ItemTemplate>
+                                <div class="product-card">
+                                    <div class="product-image-container">
+                                        <img src="./Asset/images/cucGach.png" alt='san pham' class="product-image" />
+                                        <div class="product-overlay">
+                                            <a href="DetailProduct.aspx" class="details-button">Xem chi tiết</a>
+                                        </div>
+                                    </div>
+                                    <div class="product-info">
+                                        <h3 class="product-name"><%# Eval("productName") %></h3>
+                                        <p class="product-price"><%# Eval("value") %></p>
+                                    </div>
+                                </div>
+                            </ItemTemplate>
+                        </asp:Repeater>
                     </div>
                     <div class="view-more-container">
                         <a href="Products.aspx" class="view-more-button">Xem thêm sản phẩm</a>
