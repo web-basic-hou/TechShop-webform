@@ -40,6 +40,15 @@ namespace TechShop {
         protected global::System.Web.UI.WebControls.TextBox txtFullName;
 
         /// <summary>
+        /// lblErrorFullName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblErrorFullName;
+
+        /// <summary>
         /// lblEmail control.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,15 @@ namespace TechShop {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
+
+        /// <summary>
+        /// lblErrorEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblErrorEmail;
 
         /// <summary>
         /// lblPassword control.
@@ -76,6 +94,15 @@ namespace TechShop {
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
 
         /// <summary>
+        /// lblErrorPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblErrorPassword;
+
+        /// <summary>
         /// lblConfirmPassword control.
         /// </summary>
         /// <remarks>
@@ -92,6 +119,15 @@ namespace TechShop {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtConfirmPassword;
+
+        /// <summary>
+        /// lblErrorConfirmPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblErrorConfirmPassword;
 
         /// <summary>
         /// btnRegister control.

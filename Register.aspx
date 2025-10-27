@@ -10,6 +10,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="~/Styles/Register.css">
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -31,31 +36,34 @@
                     <div class="form-group">
                         <asp:Label ID="lblFullName" runat="server" For="txtFullName" CssClass="form-label">Họ và Tên</asp:Label>
                         <asp:TextBox ID="txtFullName" runat="server" required CssClass="form-input" placeholder="Nguyễn Văn A"></asp:TextBox>
+                        <asp:Label ID="lblErrorFullName" runat="server" CssClass="error"/>
                     </div>
 
                     <div class="form-group">
                         <asp:Label ID="lblEmail" runat="server" For="txtEmail" CssClass="form-label">Địa chỉ Email</asp:Label>
                         <asp:TextBox ID="txtEmail" runat="server" type="email" autocomplete="email" required CssClass="form-input" placeholder="email@example.com"></asp:TextBox>
+                        <asp:Label ID="lblErrorEmail" runat="server" CssClass="error"/>
                     </div>
 
                     <div class="form-group">
                         <asp:Label ID="lblPassword" runat="server" For="txtPassword" CssClass="form-label">Mật khẩu</asp:Label>
                         <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" autocomplete="new-password" required CssClass="form-input" placeholder="••••••••"></asp:TextBox>
+                        <asp:Label ID="lblErrorPassword" runat="server" CssClass="error"/>
                     </div>
                     
                     <div class="form-group">
                         <asp:Label ID="lblConfirmPassword" runat="server" For="txtConfirmPassword" CssClass="form-label">Xác nhận mật khẩu</asp:Label>
                         <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password" autocomplete="new-password" required CssClass="form-input" placeholder="••••••••"></asp:TextBox>
+                        <asp:Label ID="lblErrorConfirmPassword" runat="server" CssClass="error"/>
                     </div>
 
                     <div>
-                        <asp:Button ID="btnRegister" runat="server" Text="Đăng Ký" CssClass="submit-button" />
+                        <asp:Button ID="btnRegister" runat="server" Text="Đăng Ký" CssClass="submit-button" onClick="Register_click"/>
                     </div>
                 </div>
 
                 <p class="bottom-link">
                     Đã có tài khoản?
-                    <%-- Liên kết đã được cập nhật sang trang .aspx --%>
                     <a href="Login.aspx" class="link">
                         Đăng nhập ngay
                     </a>
