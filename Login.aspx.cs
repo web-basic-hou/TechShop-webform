@@ -10,7 +10,7 @@ namespace TechShop {
     public partial class Login : System.Web.UI.Page {
         protected void Page_Load(object sender, EventArgs e) {
             if (!IsPostBack) {
-                
+                ReloadForm();
             }
         }
 
@@ -51,7 +51,10 @@ namespace TechShop {
 
             Session.Add("username", user.username);
 
-            Response.Redirect("/Home.aspx");
+            if (user.role == "admin") {
+                Response.Redirect("/AdminDashboard.aspx");
+            }else 
+                Response.Redirect("/Home.aspx");
         }
         protected void ReloadForm() {
             txtEmail.Text = "";
