@@ -43,6 +43,12 @@ namespace TechShop
                 username = "admin@system.com",
                 password = "password",
                 fullname = "Quản trị viên",
+                telephone = null,
+                address = null,
+                city = null,
+                district = null,
+                ward = null,
+                postCode = null,
                 role = "admin"
             });
 
@@ -51,6 +57,12 @@ namespace TechShop
                 username = "user2@gmail.com",
                 password = "123123123",
                 fullname = "Nguyễn Văn user2",
+                telephone = null,
+                address = null,
+                city = null,
+                district = null,
+                ward = null,
+                postCode = null,
                 role = "user"
             });
 
@@ -59,6 +71,12 @@ namespace TechShop
                 username = "user3@gmail.com",
                 password = "123123123",
                 fullname = "Trần Thị user3",
+                telephone = null,
+                address = null,
+                city = null,
+                district = null,
+                ward = null,
+                postCode = null,
                 role = "user"
             });
 

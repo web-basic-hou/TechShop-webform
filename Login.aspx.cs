@@ -19,38 +19,35 @@ namespace TechShop {
             lblErrorPassword.Text = "";
 
             if (string.IsNullOrWhiteSpace(txtEmail.Text)) {
-                lblErrorEmail.Text = "vui lòng nhập tên đăng nhập";
+                lblErrorEmail.Text = "Vui lòng nhập tên đăng nhập";
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(txtPassword.Text)) {
-                lblErrorPassword.Text = "mật khẩu k đc để trống";
-                return;
-            }
-            TechShop.App_Code.Models.Users user = new TechShop.App_Code.Models.Users();
-            List<Users> userList = new List<Users>();
-
-            if (Application.Get("users") != null)
-                userList = (List<Users>)Application.Get("users");
-            bool found = false;
-            for (int i = 0; i < userList.Count; ++i) {
-                if (userList[i].username == txtEmail.Text) {
-                    user = userList[i];
-                    found = true;
-                    break;
-                }
-            }
-
-            if (!found) {
-                lblErrorEmail.Text = "tên đăng nhập hoặc mk sai";
+                lblErrorPassword.Text = "Mật khẩu không được để trống";
                 return;
             }
 
-            Session.Add("username", user.username);
+            List<Users> userList = Application.Get("users") as List<Users>;
+            if (userList == null) {
+                lblErrorEmail.Text = "Không tìm thấy danh sách người dùng!";
+                return;
+            }
 
-            if (user.role.Equals("admin")) {
+            Users foundUser = userList.FirstOrDefault(u => 
+                u.username == txtEmail.Text && u.password == txtPassword.Text);
+
+            if (foundUser == null) {
+                lblErrorEmail.Text = "Tên đăng nhập hoặc mật khẩu sai";
+                return;
+            }
+
+            Session["email"] = foundUser.username;
+            Session["role"] = foundUser.role;
+
+            if (foundUser.role.Equals("admin", StringComparison.OrdinalIgnoreCase))
                 Response.Redirect("AdminDashboard.aspx");
-            }else 
+            else
                 Response.Redirect("Home.aspx");
         }
         protected void ReloadForm() {
