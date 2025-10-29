@@ -24,6 +24,8 @@ namespace TechShop {
                 rptProducts.DataSource = topProducts;
                 rptProducts.DataBind();
             }
+            if (Session["email"] == null)
+                Response.Redirect("Login.aspx");
         }
     }
 }

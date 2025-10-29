@@ -35,12 +35,6 @@ namespace TechShop {
                 return;
             }
 
-            Users user = new Users {
-                username = txtEmail.Text,
-                password = txtPassword.Text,
-                fullname = txtFullName.Text,
-                role = "user"
-            };
             List<Users> userList = new List<Users>();
 
             if (Application.Get("users") != null)
@@ -53,11 +47,30 @@ namespace TechShop {
                 }
             }
 
+            int lastId = 0;
+            if (userList.Count > 0) {
+                for (int i = 0; i < userList.Count; ++i) {
+                    lastId = userList[i].id;
+                }
+            }
+
+            Users user = new Users {
+                id = (lastId + 1),
+                username = txtEmail.Text,
+                password = txtPassword.Text,
+                fullname = txtFullName.Text,
+                telephone = null,
+                address = null,
+                city = null,
+                district = null,
+                ward = null,
+                postCode = null,
+                role = "user"
+            };
+
             userList.Add(user);
 
             Application.Set("users", userList);
-
-            ReloadForm();
 
             Response.Redirect("/Login.aspx");
         }

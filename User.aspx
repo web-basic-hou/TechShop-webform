@@ -86,20 +86,22 @@
                 <div class="main-form-content">
                     <div class="form-card">
                         <h2 class="section-title">Thông tin tài khoản</h2>
+
                         <div class="form-section">
                             <div class="input-group">
                                 <div class="form-field">
                                     <label for="full_name" class="form-label">Họ và tên</label>
-                                    <asp:TextBox ID="full_name" runat="server" Text="Anh Nguyễn" CssClass="form-input" style="background-color: var(--color-slate-100);"></asp:TextBox>
+                                    <asp:TextBox ID="full_name" runat="server" CssClass="form-input" style="background-color: var(--color-slate-100);"></asp:TextBox>
                                 </div>
                                 <div class="form-field">
                                     <label for="email" class="form-label">Email</label>
-                                    <asp:TextBox ID="email" runat="server" Text="anh.nguyen@email.com" CssClass="form-input" style="background-color: var(--color-slate-100);" Enabled="false"></asp:TextBox>
+                                    <asp:TextBox ID="email" runat="server" CssClass="form-input" style="background-color: var(--color-slate-100);" Enabled="false"></asp:TextBox>
                                 </div>
                             </div>
+
                             <div class="form-field">
                                  <label for="phone" class="form-label">Số điện thoại</label>
-                                 <asp:TextBox ID="phone" runat="server" Text="0987654321" CssClass="form-input" style="background-color: var(--color-slate-100);"></asp:TextBox>
+                                 <asp:TextBox ID="phone" runat="server" CssClass="form-input" style="background-color: var(--color-slate-100);"></asp:TextBox>
                             </div>
                              <div class="form-action">
                                 <asp:Button ID="btnSaveChanges" runat="server" Text="Lưu thay đổi" CssClass="button button-primary" />
