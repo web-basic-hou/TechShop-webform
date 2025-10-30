@@ -193,54 +193,7 @@
                     <div class="form-card">
                         <h2 class="section-title">Lịch sử đơn hàng</h2>
                         
-                        <div>
-                            <div class="order-card">
-                                <div class="order-header">
-                                    <span class="order-id">Mã đơn hàng: #TECH12345</span>
-                                    <span class="status-badge status-shipping">Đang giao</span>
-                                </div>
-                                <div class="order-body">
-                                    <div class="product-item">
-                                        <img src="./assets/images/cucGach.png" alt="Product" class="product-image">
-                                        <div class="product-details">
-                                            <p class="product-name">iPhone 15 Pro Max 256GB</p>
-                                            <p class="product-info">Số lượng: 1</p>
-                                        </div>
-                                    </div>
-                                     <div class="product-item">
-                                        <img src="./assets/images/cucGach2.png" alt="Product" class="product-image">
-                                        <div class="product-details">
-                                            <p class="product-name">Samsung Galaxy S23 Ultra</p>
-                                            <p class="product-info">Số lượng: 1</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="order-footer">
-                                     <p class="order-total">Tổng tiền: <span>49.980.000₫</span></p>
-                                     <a href="#" class="button button-primary">Xem chi tiết</a>
-                                </div>
-                            </div>
-
-                             <div class="order-card">
-                                <div class="order-header">
-                                    <span class="order-id">Mã đơn hàng: #TECH67890</span>
-                                    <span class="status-badge status-delivered">Đã giao</span>
-                                </div>
-                                 <div class="order-body">
-                                    <div class="product-item">
-                                        <img src="./assets/images/cucGachReal.png" alt="Product" class="product-image">
-                                        <div class="product-details">
-                                            <p class="product-name">Apple Watch Series 9</p>
-                                            <p class="product-info">Số lượng: 1</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="order-footer">
-                                    <p class="order-total">Tổng tiền: <span>100.490.000₫</span></p>
-                                    <a href="#" class="button button-primary">Xem chi tiết</a>
-                                </div>
-                            </div>
-                        </div>
+                        <asp:Literal ID="orderListLiteral" runat="server"></asp:Literal>
                     </div>
                 </div>
             </div>
