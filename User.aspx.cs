@@ -10,38 +10,33 @@ namespace TechShop {
     public partial class User : System.Web.UI.Page {
         protected void Page_Load(object sender, EventArgs e) {
             if (!IsPostBack) {
-                Users currentUser = getCurrentUser();
+                Users currentUser = GetCurrentUser();
+                lblErrorChangePassword.Text = "";
 
-                if (currentUser == null) 
+                if (currentUser == null)
                     Response.Redirect("Login.aspx");
 
-                loadUser(currentUser);
+                LoadUser(currentUser);
             }
         }
 
-        protected Users getCurrentUser() {
-            List<Users> userList = (List<Users>)Application.Get("users");
-
+        // Lấy user hiện tại từ session + Application
+        protected Users GetCurrentUser() {
+            List<Users> userList = (List<Users>)Application["users"];
             if (Session["email"] == null) {
                 Response.Redirect("Login.aspx");
             }
-            string currentEmail = Session["email"].ToString();
-            
+            string email = Session["email"].ToString();
 
-            Users user = null;
-            for (int i = 0; i < userList.Count; ++i) {
-                if (currentEmail.Equals(userList[i].username)) {
-                    user = userList[i];
-                    break;
-                }
-            }
+            Users user = userList.FirstOrDefault(u => u.username == email);
             if (user == null)
                 Response.Redirect("Login.aspx");
 
             return user;
         }
 
-        protected void loadUser(Users user) {
+        // Load dữ liệu vào form
+        protected void LoadUser(Users user) {
             full_name.Text = user.fullname;
             email.Text = user.username;
             phone.Text = user.telephone;
@@ -52,24 +47,27 @@ namespace TechShop {
             postal_code.Text = user.postCode;
         }
 
+        // Lưu thông tin họ tên + điện thoại
         protected void btnSaveChanges_Click(object sender, EventArgs e) {
             List<Users> userList = (List<Users>)Application["users"];
-            Users currentUser = getCurrentUser();
+            string email = Session["email"].ToString();
 
+            Users currentUser = userList.FirstOrDefault(u => u.username == email);
             if (currentUser != null) {
                 currentUser.fullname = full_name.Text.Trim();
                 currentUser.telephone = phone.Text.Trim();
 
-                Application["users"] = userList; // cập nhật lại
-                ClientScript.RegisterStartupScript(this.GetType(), "alert",
-                    "alert('Cập nhật thông tin thành công!');", true);
+                Application["users"] = userList;
+                LoadUser(currentUser); 
             }
         }
 
+        // Lưu thông tin địa chỉ
         protected void btnSaveAddress_Click(object sender, EventArgs e) {
             List<Users> userList = (List<Users>)Application["users"];
-            Users currentUser = getCurrentUser();
+            string email = Session["email"].ToString();
 
+            Users currentUser = userList.FirstOrDefault(u => u.username == email);
             if (currentUser != null) {
                 currentUser.address = address.Text.Trim();
                 currentUser.city = city.Text.Trim();
@@ -78,39 +76,61 @@ namespace TechShop {
                 currentUser.postCode = postal_code.Text.Trim();
 
                 Application["users"] = userList;
-
-                ClientScript.RegisterStartupScript(this.GetType(), "alert",
-                    "alert('Lưu địa chỉ thành công!');", true);
+                LoadUser(currentUser);
             }
         }
 
+        // Đổi mật khẩu
         protected void btnChangePassword_Click(object sender, EventArgs e) {
-            List<Users> userList = (List<Users>)Application["users"];
-            Users currentUser = getCurrentUser();
+            lblErrorChangePassword.Text = "";
 
-            if (currentUser != null) {
-                string currentPass = current_password.Text.Trim();
-                string newPass = new_password.Text.Trim();
-                string confirmPass = confirm_password.Text.Trim();
-
-                if (currentPass != currentUser.password) {
-                    ClientScript.RegisterStartupScript(this.GetType(), "alert",
-                        "alert('Mật khẩu hiện tại không đúng!');", true);
-                    return;
-                }
-
-                if (newPass != confirmPass) {
-                    ClientScript.RegisterStartupScript(this.GetType(), "alert",
-                        "alert('Xác nhận mật khẩu không khớp!');", true);
-                    return;
-                }
-
-                currentUser.password = newPass;
-                Application["users"] = userList;
-
-                ClientScript.RegisterStartupScript(this.GetType(), "alert",
-                    "alert('Đổi mật khẩu thành công!');", true);
+            if (Application["users"] == null) {
+                lblErrorChangePassword.Text = "Không tìm thấy danh sách người dùng.";
+                return;
             }
+
+            List<Users> userList = (List<Users>)Application["users"];
+
+            if (Session["email"] == null) {
+                lblErrorChangePassword.Text = "Phiên đăng nhập đã hết hạn.";
+                return;
+            }
+
+            string email = Session["email"].ToString();
+
+            Users currentUser = userList.FirstOrDefault(u => u.username == email);
+            if (currentUser == null) {
+                lblErrorChangePassword.Text = "Không tìm thấy tài khoản.";
+                return;
+            }
+
+            string currentPass = current_password.Text.Trim();
+            string newPass = new_password.Text.Trim();
+            string confirmPass = confirm_password.Text.Trim();
+
+            if (currentPass != currentUser.password) {
+                lblErrorChangePassword.Text = "Mật khẩu hiện tại không đúng.";
+                return;
+            }
+
+            if (newPass.Length < 8) {
+                lblErrorChangePassword.Text = "Mật khẩu phải có 8 kí tự";
+                return;
+            }
+
+            if (newPass != confirmPass) {
+                lblErrorChangePassword.Text = "Mật khẩu nhập lại không khớp.";
+                return;
+            }
+
+            currentUser.password = newPass;
+
+            Application.Lock();
+            Application["users"] = userList;
+            Application.UnLock();
+
+            lblErrorChangePassword.ForeColor = System.Drawing.Color.Green;
+            lblErrorChangePassword.Text = "Đổi mật khẩu thành công!";
         }
 
         protected void Button1_Click(object sender, EventArgs e) {
