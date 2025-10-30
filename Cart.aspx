@@ -28,7 +28,6 @@
                     <div class="header-icons">
                         <a href="Cart.aspx" class="icon-link cart-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
-                            <span class="cart-badge">3</span>
                         </a>
                         <a href="User.aspx" class="icon-link"><svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg></a>
                     </div>
@@ -52,67 +51,40 @@
 
             <div class="cart-layout">
                 <div class="cart-items-container">
-                    <div class="cart-items-card">
-                        <div class="cart-item">
-                            <img src="./assets/images/cucGach.png" alt="Product Image" class="cart-item-image">
-                            <div class="cart-item-details">
-                                <h3 class="product-name">iPhone 15 Pro Max 256GB</h3>
-                                <p class="product-meta">Màu: Titan tự nhiên</p>
-                                <button class="remove-button">Xóa</button>
-                            </div>
-                            <div class="quantity-selector">
-                                <button class="quantity-btn">-</button>
-                                <input type="text" value="1" class="quantity-input">
-                                <button class="quantity-btn">+</button>
-                            </div>
-                            <p class="cart-item-price">30.990.000₫</p>
-                        </div>
-
-                        <div class="cart-item">
-                            <img src="./assets/images/dtGap.png" alt="Product Image" class="cart-item-image">
-                            <div class="cart-item-details">
-                                <h3 class="product-name">Samsung Galaxy S23 Ultra</h3>
-                                <p class="product-meta">Màu: Xanh rêu</p>
-                                <button class="remove-button">Xóa</button>
-                            </div>
-                            <div class="quantity-selector">
-                                <button class="quantity-btn">-</button>
-                                <input type="text" value="1" class="quantity-input">
-                                <button class="quantity-btn">+</button>
-                            </div>
-                            <p class="cart-item-price">25.490.000₫</p>
-                        </div>
-
-                        <div class="cart-item">
-                            <img src="./assets/images/cucGachReal.png" alt="Product Image" class="cart-item-image">
-                            <div class="cart-item-details">
-                                <h3 class="product-name">iPhone 20 Pro Max 256TB</h3>
-                                <p class="product-meta">Màu: Titan tự nhiên</p>
-                                <button class="remove-button">Xóa</button>
-                            </div>
-                            <div class="quantity-selector">
-                                <button class="quantity-btn">-</button>
-                                <input type="text" value="1" class="quantity-input">
-                                <button class="quantity-btn">+</button>
-                            </div>
-                            <p class="cart-item-price">300.000.000₫</p>
-                        </div>
-                    </div>
+                    <asp:GridView ID="gvCart" runat="server" AutoGenerateColumns="False"
+                        CssClass="cart-table"
+                        OnRowCommand="gvCart_RowCommand"
+                        EmptyDataText="Giỏ hàng trống">
+                        <Columns>
+                            <asp:ImageField DataImageUrlField="productImage" HeaderText="Hình ảnh" ControlStyle-Height="80" />
+                            <asp:BoundField DataField="productName" HeaderText="Sản phẩm" />
+                            <asp:BoundField DataField="price" HeaderText="Giá" DataFormatString="{0:N0} vnđ" />
+                            <asp:BoundField DataField="quantity" HeaderText="Số lượng" />
+                            <asp:BoundField DataField="total" HeaderText="Thành tiền" DataFormatString="{0:N0} vnđ" />
+        
+                            <asp:TemplateField HeaderText="Thao tác">
+                                <ItemTemplate>
+                                    <asp:Button ID="btnRemove" runat="server" Text="❌ Xóa"
+                                        CommandName="Remove"
+                                        CommandArgument='<%# Eval("productId") %>'
+                                        CssClass="remove-button" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                    </asp:GridView>
                 </div>
                 <div class="order-summary-container">
                     <div class="order-summary-card">
                         <h2 class="summary-title">Tóm tắt đơn hàng</h2>
                         <div class="summary-row">
-                            <span>Tạm tính</span>
-                            <span>566.480.000₫</span>
+                            Tổng cộng: <asp:Label ID="lblTotalTemp" runat="server" Text="0 vnđ"></asp:Label>
                         </div>
                         <div class="summary-row">
                             <span>Phí vận chuyển</span>
                             <span>Miễn phí</span>
                         </div>
                         <div class="summary-total">
-                            <span>Tổng cộng</span>
-                            <span>566.480.000₫</span>
+                            Tổng cộng: <asp:Label ID="lblTotal" runat="server" Text="0 vnđ"></asp:Label>
                         </div>
                         <a href="Pay.aspx" class="checkout-button-link"><button type="button" class="checkout-button">Tiến hành thanh toán</button></a>
                         <a href="Products.aspx" class="continue-shopping-link">Tiếp tục mua sắm</a>
