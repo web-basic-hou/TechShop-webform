@@ -14,7 +14,7 @@
 <body>
     <form id="form1" runat="server">
         <div class="body-container">
-            <aside class="sidebar">
+            <div class="sidebar">
                 <div class="sidebar-header">
                     <svg xmlns="http://www.w3.org/2000/svg" class="sidebar-logo-icon icon" viewBox="0 0 24 24">
                         <path d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
@@ -35,7 +35,7 @@
                         <span>Khách hàng</span>
                     </a>
                 </nav>
-            </aside>
+            </div>
 
             <div class="main-container">
                 <header class="header">
@@ -52,25 +52,25 @@
                         <div class="stat-card">
                             <div>
                                 <p class="stat-label">Tổng doanh thu</p>
-                                <p class="stat-value">1.250.000.000₫</p>
-                            </div>
-                        </div>
-                         <div class="stat-card">
-                            <div>
-                                <p class="stat-label">Đơn hàng mới</p>
-                                <p class="stat-value">35</p>
+                                <p class="stat-value"><asp:Literal ID="litTotalRevenue" runat="server" /></p>
                             </div>
                         </div>
                         <div class="stat-card">
                             <div>
-                                <p class="stat-label">Khách hàng mới</p>
-                                <p class="stat-value">150</p>
+                                <p class="stat-label">Đơn hàng</p>
+                                <p class="stat-value"><asp:Literal ID="litTotalOrders" runat="server" /></p>
                             </div>
                         </div>
-                         <div class="stat-card">
+                        <div class="stat-card">
                             <div>
-                                <p class="stat-label">Sản phẩm tồn kho</p>
-                                <p class="stat-value">1,234</p>
+                                <p class="stat-label">Khách hàng</p>
+                                <p class="stat-value"><asp:Literal ID="litTotalCustomers" runat="server" /></p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div>
+                                <p class="stat-label">Loại sản phẩm</p>
+                                <p class="stat-value"><asp:Literal ID="litTotalProducts" runat="server" /></p>
                             </div>
                         </div>
                     </div>
@@ -89,33 +89,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="table-row">
-                                        <th scope="row" class="row-header">#TECH1024</th>
-                                        <td>Bình An</td>
-                                        <td>17/10/2025</td>
-                                        <td>30.990.000₫</td>
-                                        <td>
-                                            <span class="status-badge status-green">Đã giao</span>
-                                        </td>
-                                    </tr>
-                                    <tr class="table-row">
-                                        <th scope="row" class="row-header">#TECH1023</th>
-                                        <td>Minh Tuấn</td>
-                                        <td>17/10/2025</td>
-                                        <td>25.490.000₫</td>
-                                        <td>
-                                             <span class="status-badge status-yellow">Đang xử lý</span>
-                                        </td>
-                                    </tr>
-                                    <tr class="table-row">
-                                        <th scope="row" class="row-header">#TECH1022</th>
-                                        <td>Lan Chi</td>
-                                        <td>16/10/2025</td>
-                                        <td>5.500.000₫</td>
-                                        <td>
-                                            <span class="status-badge status-red">Đã hủy</span>
-                                        </td>
-                                    </tr>
+                                    <asp:Literal ID="litRecentOrders" runat="server" />
                                 </tbody>
                             </table>
                         </div>
