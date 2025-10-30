@@ -52,67 +52,40 @@
 
             <div class="cart-layout">
                 <div class="cart-items-container">
-                    <div class="cart-items-card">
-                        <div class="cart-item">
-                            <img src="./assets/images/cucGach.png" alt="Product Image" class="cart-item-image">
-                            <div class="cart-item-details">
-                                <h3 class="product-name">iPhone 15 Pro Max 256GB</h3>
-                                <p class="product-meta">Màu: Titan tự nhiên</p>
-                                <button class="remove-button">Xóa</button>
-                            </div>
-                            <div class="quantity-selector">
-                                <button class="quantity-btn">-</button>
-                                <input type="text" value="1" class="quantity-input">
-                                <button class="quantity-btn">+</button>
-                            </div>
-                            <p class="cart-item-price">30.990.000₫</p>
-                        </div>
-
-                        <div class="cart-item">
-                            <img src="./assets/images/dtGap.png" alt="Product Image" class="cart-item-image">
-                            <div class="cart-item-details">
-                                <h3 class="product-name">Samsung Galaxy S23 Ultra</h3>
-                                <p class="product-meta">Màu: Xanh rêu</p>
-                                <button class="remove-button">Xóa</button>
-                            </div>
-                            <div class="quantity-selector">
-                                <button class="quantity-btn">-</button>
-                                <input type="text" value="1" class="quantity-input">
-                                <button class="quantity-btn">+</button>
-                            </div>
-                            <p class="cart-item-price">25.490.000₫</p>
-                        </div>
-
-                        <div class="cart-item">
-                            <img src="./assets/images/cucGachReal.png" alt="Product Image" class="cart-item-image">
-                            <div class="cart-item-details">
-                                <h3 class="product-name">iPhone 20 Pro Max 256TB</h3>
-                                <p class="product-meta">Màu: Titan tự nhiên</p>
-                                <button class="remove-button">Xóa</button>
-                            </div>
-                            <div class="quantity-selector">
-                                <button class="quantity-btn">-</button>
-                                <input type="text" value="1" class="quantity-input">
-                                <button class="quantity-btn">+</button>
-                            </div>
-                            <p class="cart-item-price">300.000.000₫</p>
-                        </div>
-                    </div>
+                    <asp:GridView ID="gvCart" runat="server" AutoGenerateColumns="False"
+                        CssClass="cart-table"
+                        OnRowCommand="gvCart_RowCommand"
+                        EmptyDataText="Giỏ hàng trống">
+                        <Columns>
+                            <asp:ImageField DataImageUrlField="productImage" HeaderText="Hình ảnh" ControlStyle-Height="80" />
+                            <asp:BoundField DataField="productName" HeaderText="Sản phẩm" />
+                            <asp:BoundField DataField="price" HeaderText="Giá" DataFormatString="{0:N0} vnđ" />
+                            <asp:BoundField DataField="quantity" HeaderText="Số lượng" />
+                            <asp:BoundField DataField="total" HeaderText="Thành tiền" DataFormatString="{0:N0} vnđ" />
+        
+                            <asp:TemplateField HeaderText="Thao tác">
+                                <ItemTemplate>
+                                    <asp:Button ID="btnRemove" runat="server" Text="❌ Xóa"
+                                        CommandName="Remove"
+                                        CommandArgument='<%# Eval("productId") %>'
+                                        CssClass="remove-button" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                    </asp:GridView>
                 </div>
                 <div class="order-summary-container">
                     <div class="order-summary-card">
                         <h2 class="summary-title">Tóm tắt đơn hàng</h2>
                         <div class="summary-row">
-                            <span>Tạm tính</span>
-                            <span>566.480.000₫</span>
+                            Tổng cộng: <asp:Label ID="lblTotalTemp" runat="server" Text="0 vnđ"></asp:Label>
                         </div>
                         <div class="summary-row">
                             <span>Phí vận chuyển</span>
                             <span>Miễn phí</span>
                         </div>
                         <div class="summary-total">
-                            <span>Tổng cộng</span>
-                            <span>566.480.000₫</span>
+                            Tổng cộng: <asp:Label ID="lblTotal" runat="server" Text="0 vnđ"></asp:Label>
                         </div>
                         <a href="Pay.aspx" class="checkout-button-link"><button type="button" class="checkout-button">Tiến hành thanh toán</button></a>
                         <a href="Products.aspx" class="continue-shopping-link">Tiếp tục mua sắm</a>

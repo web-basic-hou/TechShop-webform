@@ -17,7 +17,7 @@ namespace TechShop.App_Code.Models {
 
         public decimal total => quantity * priceAtPurchase;
 
-        public string Status { get; set; }  // "cart", "ordered", "shipping", "delivered", "cancelled"
+        public string Status { get; set; }  // "CART", "DELIVERY", "RECEIVED"
 
         public DateTime CreatedAt { get; set; }
         public int? OrderId { get; set; }

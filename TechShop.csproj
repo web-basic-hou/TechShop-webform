@@ -135,9 +135,10 @@
     <Compile Include="AdminProduct.aspx.designer.cs">
       <DependentUpon>AdminProduct.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Code\Models\CartItemViewModel.cs" />
     <Compile Include="App_Code\Models\Products.cs" />
     <Compile Include="App_Code\Models\Rates.cs" />
-    <Content Include="App_Code\Models\UserProducts.cs" />
+    <Compile Include="App_Code\Models\UserProducts.cs" />
     <Compile Include="App_Code\Models\Users.cs" />
     <Compile Include="Cart.aspx.cs">
       <DependentUpon>Cart.aspx</DependentUpon>

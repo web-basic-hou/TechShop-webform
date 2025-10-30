@@ -96,5 +96,16 @@ namespace TechShop {
             rblPrice.ClearSelection();
             LoadProducts(1);
         }
+
+        protected void btnAddToCart_Command(object sender, CommandEventArgs e) {
+            var parts = e.CommandArgument.ToString().Split('|');
+            int id = int.Parse(parts[0]);
+            string name = parts[1];
+            decimal price = decimal.Parse(parts[2]);
+            string image = parts[3];
+
+            Cart.AddItemToCart(id, name, price, image);
+            Response.Redirect("Cart.aspx"); // sau khi thêm thì chuyển sang giỏ hàng
+        }
     }
 }
