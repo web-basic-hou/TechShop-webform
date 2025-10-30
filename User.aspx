@@ -10,6 +10,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="~/Styles/User.css">
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -104,7 +109,7 @@
                                  <asp:TextBox ID="phone" runat="server" CssClass="form-input" style="background-color: var(--color-slate-100);"></asp:TextBox>
                             </div>
                              <div class="form-action">
-                                <asp:Button ID="btnSaveChanges" runat="server" Text="Lưu thay đổi" CssClass="button button-primary" />
+                                <asp:Button ID="btnSaveChanges" runat="server" Text="Lưu thay đổi" CssClass="button button-primary" OnClick="btnSaveChanges_Click" />
                             </div>
                         </div>
 
@@ -137,7 +142,7 @@
                                 </div>
                             </div>
                             <div class="form-action">
-                                <asp:Button ID="btnSaveAddress" runat="server" Text="Lưu địa chỉ" CssClass="button button-primary" />
+                                <asp:Button ID="btnSaveAddress" runat="server" Text="Lưu địa chỉ" CssClass="button button-primary" OnClick="btnSaveAddress_Click" />
                             </div>
                         </div>
 
@@ -148,6 +153,7 @@
                             <div class="form-field">
                                 <label for="current_password" class="form-label">Mật khẩu hiện tại</label>
                                 <asp:TextBox ID="current_password" runat="server" TextMode="Password" CssClass="form-input"></asp:TextBox>
+                                <asp:label id="lblErrorChangePassword" runat="server" CssClass="error"/>
                             </div>
                             <div class="input-group">
                                 <div class="form-field">
@@ -160,12 +166,12 @@
                                 </div>
                             </div>
                              <div class="form-action">
-                                <asp:Button ID="btnChangePassword" runat="server" Text="Đổi mật khẩu" CssClass="button button-secondary" />
+                                <asp:Button ID="btnChangePassword" runat="server" Text="Đổi mật khẩu" CssClass="button button-secondary" OnClick="btnChangePassword_Click" />
                             </div>
                         </div>
                         <br />
                          <div class="form-action">
-                            <asp:Button ID="Button1" runat="server" Text="Đăng xuất" CssClass="button button-secondary" />
+                            <asp:Button ID="Button1" runat="server" Text="Đăng xuất" CssClass="button button-secondary" onClick="Button1_Click" />
                         </div>
                     </div>
                 </div>
