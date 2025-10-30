@@ -352,3 +352,26 @@ body {
   border-color: var(--color-blue-300);
   background-color: var(--color-blue-50);
 }
+
+.main-container {
+    flex: 1;
+    display: flex; /* BẮT BUỘC: Biến nó thành flex container */
+    flex-direction: column; /* Sắp xếp header và content theo chiều dọc */
+    overflow: hidden; /* Ngăn cuộn kép */
+    height: 100vh; /* Đảm bảo nó chiếm toàn bộ chiều cao màn hình */
+}
+
+.header {
+    /* Header có chiều cao cố định, không co giãn */
+    flex-shrink: 0;
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-sm);
+    padding: 1rem 1.5rem;
+}
+
+.content-area {
+    /* QUAN TRỌNG: Yêu cầu nó lấp đầy không gian dọc còn lại */
+    flex: 1;
+    overflow-y: auto; /* Cho phép cuộn nếu nội dung dài */
+    padding: 1.5rem;
+}
