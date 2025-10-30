@@ -68,6 +68,12 @@
 
                         <h3>Thông số kỹ thuật:</h3>
                         <p><asp:Label ID="lblProductSpec" runat="server" /></p>
+
+                        <div class="action-buttons">
+                            <asp:Button ID="btnAddToCart" runat="server" Text="Thêm vào giỏ hàng" CssClass="btn btn-primary" OnClick="btnAddToCart_Click" />
+                            <asp:Button ID="btnBuyNow" runat="server" Text="Mua ngay" CssClass="btn btn-secondary" OnClick="btnBuyNow_Click" />
+                        </div>
+                        <asp:Label ID="lblAddCartMsg" runat="server" CssClass="cart-success"></asp:Label>
                     </div>
                 </div>
             </div>
