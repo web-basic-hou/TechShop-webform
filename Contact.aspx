@@ -10,6 +10,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="~/Styles/Contact.css">
+    <style>
+        .success-message {
+          display: block;
+          margin-top: 0.75rem;
+          color: #16a34a;
+          font-weight: 600;
+          font-size: 0.95rem;
+          text-align: center;
+          animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(-5px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -94,7 +110,8 @@
                                 <asp:TextBox ID="contact_message" runat="server" TextMode="MultiLine" Rows="4" CssClass="form-textarea"></asp:TextBox>
                             </div>
                             <div class="form-actions">
-                                 <asp:Button ID="btnSubmit" runat="server" Text="Gửi tin nhắn" CssClass="submit-button" />
+                                 <asp:Button ID="btnSubmit" runat="server" Text="Gửi tin nhắn" CssClass="submit-button" OnClick="btnSubmit_Click" />
+                                <asp:Label ID="lblMessage" runat="server" CssClass="success-message"></asp:Label>
                             </div>
                         </div>
                     </div>
