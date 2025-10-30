@@ -18,7 +18,7 @@ namespace TechShop
                 var product = new TechShop.App_Code.Models.Products {
                     id = i,
                     productName = "Sản phẩm " + i,
-                    value = (i * 1000000).ToString("N0") + "₫",
+                    value = (i * 1000000),
                     color = (i % 2 == 0) ? "Đen" : "Trắng",
                     capacity = 128 + (i % 3) * 128,
                     quantity = 10 + i,

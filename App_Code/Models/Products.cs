@@ -9,7 +9,7 @@ namespace TechShop.App_Code.Models {
         public string productName { get; set; }
 
         public string imageUrl { get; set; }
-        public string value { get; set; }
+        public float value { get; set; }
         public string color { get; set; }
         public int capacity { get; set; }
         public int quantity { get; set; }
