@@ -41,7 +41,7 @@ namespace TechShop {
             }
 
             lblProductName.Text = productDetail.productName;
-            lblProductPrice.Text = productDetail.value;
+            lblProductPrice.Text = productDetail.value.ToString();
             lblProductColor.Text = productDetail.color;
             lblProductCapacity.Text = productDetail.capacity.ToString() + "GB";
             lblProductDesc.Text = productDetail.describe;

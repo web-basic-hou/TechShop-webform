@@ -53,30 +53,31 @@
                 <aside class="filters-sidebar">
                     <div class="filters-container">
                         <div class="filter-group">
-                            <h3 class="filter-title">Thương hiệu</h3>
-                            <div class="filter-options">
-                                <label class="filter-option"><input type="checkbox"> <span>Apple</span></label>
-                                <label class="filter-option"><input type="checkbox"> <span>Samsung</span></label>
-                                <label class="filter-option"><input type="checkbox"> <span>Xiaomi</span></label>
-                                <label class="filter-option"><input type="checkbox"> <span>OPPO</span></label>
-                                <label class="filter-option"><input type="checkbox"> <span>Realme</span></label>
-                            </div>
-                        </div>
-                        <div class="filter-group">
-                            <h3 class="filter-title">Mức giá</h3>
-                            <div class="filter-options">
-                                <label class="filter-option"><input type="radio" name="price"> <span>Dưới 2 triệu</span></label>
-                                <label class="filter-option"><input type="radio" name="price"> <span>Từ 2 - 5 triệu</span></label>
-                                <label class="filter-option"><input type="radio" name="price"> <span>Từ 5 - 10 triệu</span></label>
-                                <label class="filter-option"><input type="radio" name="price"> <span>Trên 10 triệu</span></label>
-                            </div>
+                        <h3 class="filter-title">Mức giá</h3>
+                        <div class="filter-options">
+                         <asp:RadioButtonList ID="rblPrice" runat="server" RepeatDirection="Vertical" AutoPostBack="true"
+                            OnSelectedIndexChanged="rblPrice_SelectedIndexChanged">
+                            <asp:ListItem Text="Tất cả giá" Value="0-9999999999999" Selected="True"></asp:ListItem>
+                            <asp:ListItem Text="Dưới 2 triệu" Value="0-2000000"></asp:ListItem>
+                            <asp:ListItem Text="Từ 2 - 5 triệu" Value="2000000-5000000"></asp:ListItem>
+                            <asp:ListItem Text="Từ 5 - 10 triệu" Value="5000000-10000000"></asp:ListItem>
+                            <asp:ListItem Text="Trên 10 triệu" Value="10000000-999999999"></asp:ListItem>
+                        </asp:RadioButtonList>
+
                         </div>
                     </div>
+
                 </aside>
 
                 <div class="product-grid-container">
-                    <div class="mini-head">
+                   <div class="mini-head">
                         <p>Hiển thị <span class="font-semibold">6</span> trên <span class="font-semibold">50</span> sản phẩm</p>
+                        <div class="search-container">
+                            <asp:TextBox ID="txtSearch" runat="server" CssClass="search-input" placeholder="Tìm sản phẩm..."></asp:TextBox>
+                            <asp:Button ID="btnSearch" runat="server" Text="Tìm" CssClass="search-btn" OnClick="btnSearch_Click" />
+                            <asp:Button ID="btnReset" runat="server" Text="Reset" CssClass="search-btn" OnClick="btnReset_Click" />
+
+                        </div>
                     </div>
                     
                     <div class="product-grid">
@@ -88,7 +89,7 @@
                                     </a>
                                     <div class="product-info">
                                         <h3 class="product-name"><%# Eval("productName") %></h3>
-                                        <p class="product-price"><%# Eval("value") %></p>
+                                        <p class="product-price"><%# Eval("value") %> vnđ</p>
                                         <button class="add-to-cart-btn">Thêm vào giỏ</button>
                                     </div>
                                 </div>
