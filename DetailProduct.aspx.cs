@@ -30,7 +30,7 @@ namespace TechShop {
 
             var products = Application["Products"] as List<TechShop.App_Code.Models.Products>;
             if (products == null) {
-                Response.Write("<script>alert('Danh sách sản phẩm trống!');</script>");
+                Response.Write("<script>alert('Danh sách sp trống!');</script>");
                 return;
             }
 

@@ -10,6 +10,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="~/Styles/Pay.css">
+    <style>
+        .total-text {
+            display:block;
+            margin: 1rem 0;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -82,51 +89,16 @@
 
                     <div class="card">
                         <h2 class="section-title">3. Xem lại đơn hàng</h2>
-                        <div class="order-items">
-                            <div class="order-item">
-                                <div class="product-info">
-                                    <img src="./assets/images/cucGach.png" alt="Samsung Galaxy S23" class="product-image">
-                                    <div>
-                                        <h3 class="product-name">Samsung Galaxy S23 Ultra</h3>
-                                        <p class="product-quantity">Số lượng: 1</p>
-                                    </div>
-                                </div>
-                                <span class="product-price">18.990.000₫</span>
-                            </div>
-                            <div class="order-item">
-                                 <div class="product-info">
-                                    <img src="./assets/images/cucGach2.png" alt="iPhone 15" class="product-image">
-                                    <div>
-                                        <h3 class="product-name">iPhone 15 Pro Max</h3>
-                                        <p class="product-quantity">Số lượng: 1</p>
-                                    </div>
-                                </div>
-                                <span class="product-price">30.990.000₫</span>
-                            </div>
-                        </div>
-                        
-                        <div class="order-summary">
-                             <div class="summary-row">
-                                <span>Tạm tính</span>
-                                <span class="font-medium">49.980.000₫</span>
-                            </div>
-                             <div class="summary-row">
-                                <span>Phí vận chuyển</span>
-                                <span class="font-medium">Miễn phí</span>
-                            </div>
-                             <div class="summary-row total">
-                                <span>Tổng cộng</span>
-                                <span>49.980.000₫</span>
-                            </div>
-                        </div>
+
+                        <asp:Literal ID="orderItemsLiteral" runat="server"></asp:Literal>
+
+                        <asp:Label ID="lblTotal" runat="server" Text="0₫" CssClass="total-text"></asp:Label>
+
+                        <asp:Button ID="Button1" runat="server" Text="Hoàn tất Đặt Hàng" CssClass="submit-button" OnClick="btnSubmitOrder_Click" />
                     </div>
 
                     <div class="submit-button-container">
-                        <asp:Button ID="btnSubmitOrder" runat="server" Text="Hoàn tất Đặt Hàng" CssClass="submit-button" />
-                    </div>
-
-                    <div class="delete-button-container">
-                        <a href="Home.aspx">Hủy đặt hàng</a>
+                        <asp:Button ID="btnSubmitOrder" runat="server" Text="Huỷ đặt hàng" CssClass="submit-button" OnClick="cancel" />
                     </div>
                 </div>
             </div>
