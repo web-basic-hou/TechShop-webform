@@ -39,6 +39,7 @@ namespace TechShop {
             var cart = GetCart();
             gvCart.DataSource = cart;
             gvCart.DataBind();
+            lblTotalTemp.Text = $"{cart.Sum(i => i.total):N0} vnđ";
             lblTotal.Text = $"{cart.Sum(i => i.total):N0} vnđ";
         }
 
