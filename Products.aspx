@@ -88,7 +88,7 @@
                                     </a>
                                     <div class="product-info">
                                         <h3 class="product-name"><%# Eval("productName") %></h3>
-                                        <p class="product-price"><%# Eval("value") %> vnđ</p>
+                                        <p class="product-price"><%# string.Format("{0:N0} vnđ", Eval("value")) %></p>
                                         <asp:Button 
                                             ID="btnAddToCart" 
                                             runat="server" 

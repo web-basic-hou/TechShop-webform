@@ -231,7 +231,9 @@ body {
 
 .product-image {
     width: 70%;
-    height: auto;
+    height: 250px; 
+    object-fit: cover;
+    display: block;
 }
 
 .product-overlay {

@@ -332,8 +332,9 @@ body {
 
 .product-image {
     width: 50%;
-    height: 50%;
-    justify-self: center;
+    height: 250px; 
+    object-fit: cover;
+    display: block;
 }
 
 .product-info {

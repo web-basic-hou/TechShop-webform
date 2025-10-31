@@ -57,14 +57,14 @@
                             <ItemTemplate>
                                 <div class="product-card">
                                     <div class="product-image-container">
-                                        <img src="./Asset/images/cucGach.png" alt='san pham' class="product-image" />
+                                        <img src='<%# ResolveUrl(Eval("imageUrl").ToString()) %>'' alt='san pham' class="product-image" />
                                         <div class="product-overlay">
                                             <a href='<%# "DetailProduct.aspx?id=" + Eval("id") %>' class="details-button">Xem chi tiết</a>
                                         </div>
                                     </div>
                                     <div class="product-info">
                                         <h3 class="product-name"><%# Eval("productName") %></h3>
-                                        <p class="product-price"><%# Eval("value") %></p>
+                                        <p class="product-price"><%# string.Format("{0:N0} vnđ", Eval("value")) %></p>
                                     </div>
                                 </div>
                             </ItemTemplate>
