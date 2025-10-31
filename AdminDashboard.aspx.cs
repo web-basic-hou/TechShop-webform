@@ -84,5 +84,11 @@ namespace TechShop {
             var user = users?.FirstOrDefault(u => u.id == userId);
             return user != null ? user.fullname : "Khách hàng";
         }
+
+        protected void btnLogout_Click(object sender, EventArgs e) {
+            Session.Clear();
+            Session.Abandon();
+            Response.Redirect("Login.aspx");
+        }
     }
 }

@@ -31,6 +31,14 @@
           <a href="AdminProduct.aspx" class="nav-item">Sản phẩm</a>
           <a href="AdminManagesOrder.aspx" class="nav-item active">Đơn hàng</a>
           <a href="AdminCustomerManages.aspx" class="nav-item">Khách hàng</a>
+
+          <asp:Button 
+              ID="btnLogout" 
+              runat="server" 
+              Text="Đăng xuất" 
+              CssClass="logout-btn" 
+              OnClick="btnLogout_Click" 
+          />
         </nav>
       </aside>
 
