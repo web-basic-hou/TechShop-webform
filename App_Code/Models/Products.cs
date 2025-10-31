@@ -16,5 +16,7 @@ namespace TechShop.App_Code.Models {
         public string describe { get; set; }
         public string specification { get; set; }
         public List<Rates> rateList { get; set; }
+
+
     }
 }

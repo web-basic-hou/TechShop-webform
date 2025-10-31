@@ -1,0 +1,249 @@
+﻿/* AdminAddProduct.css - responsive form */
+
+:root {
+    --bg: #f6f8fb;
+    --card: #fff;
+    --muted: #6b7280;
+    --text: #0f172a;
+    --primary: #3b82f6;
+    --danger: #ef4444;
+    --radius: 10px;
+    --shadow: 0 8px 28px rgba(15,23,42,0.06);
+    --gap: 1rem;
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    font-family: "Inter",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased
+}
+
+.page {
+    display: flex;
+    min-height: 100vh
+}
+
+.sidebar {
+    width: 240px;
+    background: linear-gradient(180deg,#071127,#0f1724);
+    color: #e6eef8;
+    padding: 1rem;
+    flex-shrink: 0
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1rem
+}
+
+.sidebar-logo-icon {
+    width: 36px;
+    height: 36px;
+    color: var(--primary)
+}
+
+.sidebar-title {
+    font-weight: 700
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem
+}
+
+.nav-item {
+    color: rgba(230,238,248,0.95);
+    text-decoration: none;
+    padding: 0.5rem;
+    border-radius: 8px
+}
+
+    .nav-item.active {
+        background: rgba(59,130,246,0.12);
+        color: #fff
+    }
+
+/* main content */
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column
+}
+
+.header {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(15,23,42,0.04);
+    background: transparent
+}
+
+    .header h1 {
+        margin: 0;
+        font-size: 1.25rem
+    }
+
+.content {
+    padding: 1.25rem
+}
+
+.card {
+    background: var(--card);
+    padding: 1rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow)
+}
+
+/* form grid */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    align-items: start;
+}
+
+    .form-grid label {
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+        display: block
+    }
+
+.input {
+    width: 100%;
+    padding: 0.6rem;
+    border-radius: 8px;
+    border: 1px solid rgba(15,23,42,0.06)
+}
+
+.textarea {
+    min-height: 120px;
+    resize: vertical
+}
+
+.input-file {
+    display: block
+}
+
+.required {
+    color: var(--danger);
+    margin-left: 3px
+}
+
+.field-error {
+    color: var(--danger);
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+    display: block
+}
+
+/* preview & actions */
+.preview-row {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 1rem;
+    flex-wrap: wrap
+}
+
+.image-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 180px
+}
+
+    .image-preview img {
+        width: 160px;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 1px solid rgba(15,23,42,0.04)
+    }
+
+.actions {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center
+}
+
+.btn {
+    padding: 0.6rem 0.9rem;
+    border-radius: 8px;
+    border: 0;
+    cursor: pointer;
+    font-weight: 700
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: #fff
+}
+
+.btn-ghost {
+    background: transparent;
+    border: 1px solid rgba(15,23,42,0.06)
+}
+
+/* messages */
+.msg {
+    padding: 0.75rem;
+    border-radius: 8px;
+    margin-bottom: 0.75rem
+}
+
+.msg-success {
+    background: #ecfdf5;
+    color: #065f46;
+    border: 1px solid rgba(6,95,70,0.08)
+}
+
+.msg-error {
+    background: #fff1f2;
+    color: #991b1b;
+    border: 1px solid rgba(153,27,27,0.06)
+}
+
+/* responsive */
+@media (max-width:900px) {
+    .form-grid {
+        grid-template-columns: 1fr
+    }
+
+    .image-preview {
+        width: 140px
+    }
+
+        .image-preview img {
+            width: 120px;
+            height: 120px
+        }
+}
+
+@media (max-width:480px) {
+    .sidebar {
+        display: none
+    }
+
+    .page {
+        flex-direction: column
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center
+    }
+}
+
+.muted {
+    color: var(--muted);
+    font-size: 0.9rem
+}

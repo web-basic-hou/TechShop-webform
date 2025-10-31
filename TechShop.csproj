@@ -64,9 +64,19 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+feature/admin
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AdminAddProduct.aspx" />
+
+master
     <Content Include="AdminCustomerManages.aspx" />
     <Content Include="AdminDashboard.aspx" />
     <Content Include="AdminManagesOrder.aspx" />
+    <Content Include="AdminOrderDetail.aspx" />
     <Content Include="AdminProduct.aspx" />
     <Content Include="Asset\icons\handshake.png" />
     <Content Include="Asset\icons\rocket-lunch.png" />
@@ -85,9 +95,17 @@
     <Content Include="Pay.aspx" />
     <Content Include="Products.aspx" />
     <Content Include="Register.aspx" />
+    <Content Include="Scripts\adminAddProduct.js" />
+    <Content Include="Scripts\adminCustomerManages.js" />
+    <Content Include="Scripts\adminDashboard.js" />
+    <Content Include="Scripts\adminManagesOrder.js" />
+    <Content Include="Scripts\adminOrderDetail.js" />
+    <Content Include="Scripts\adminProduct.js" />
+    <Content Include="Styles\AdminAddProduct.css" />
     <Content Include="Styles\AdminCustomerManages.css" />
     <Content Include="Styles\AdminDashboard.css" />
     <Content Include="Styles\AdminManagesOrder.css" />
+    <Content Include="Styles\AdminOrderDetail.css" />
     <Content Include="Styles\AdminProduct.css" />
     <Content Include="Styles\Cart.css" />
     <Content Include="Styles\Contact.css" />
@@ -104,6 +122,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminAddProduct.aspx.cs">
+      <DependentUpon>AdminAddProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminAddProduct.aspx.designer.cs">
+      <DependentUpon>AdminAddProduct.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdminCustomerManages.aspx.cs">
       <DependentUpon>AdminCustomerManages.aspx</DependentUpon>
     </Compile>
@@ -121,6 +146,13 @@
     </Compile>
     <Compile Include="AdminManagesOrder.aspx.designer.cs">
       <DependentUpon>AdminManagesOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminOrderDetail.aspx.cs">
+      <DependentUpon>AdminOrderDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminOrderDetail.aspx.designer.cs">
+      <DependentUpon>AdminOrderDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminProduct.aspx.cs">
       <DependentUpon>AdminProduct.aspx</DependentUpon>
