@@ -85,42 +85,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <!-- TH: ví dụ tĩnh — production: render từ DB / Repeater -->
-                  <tr class="table-row">
-                    <th class="order-id" scope="row">#TECH1024</th>
-                    <td class="customer-name">Bình An</td>
-                    <td class="order-date">17/10/2025</td>
-                    <td class="order-total">30.990.000₫</td>
-                    <td><span class="status-badge status-green">Đã giao</span></td>
-                    <td><a href="#" class="action-link view-detail">Xem chi tiết</a></td>
-                  </tr>
-
-                  <tr class="table-row">
-                    <th class="order-id" scope="row">#TECH1023</th>
-                    <td class="customer-name">Minh Tuấn</td>
-                    <td class="order-date">17/10/2025</td>
-                    <td class="order-total">25.490.000₫</td>
-                    <td><span class="status-badge status-yellow">Đang xử lý</span></td>
-                    <td><a href="#" class="action-link view-detail">Xem chi tiết</a></td>
-                  </tr>
-
-                  <tr class="table-row">
-                    <th class="order-id" scope="row">#TECH1022</th>
-                    <td class="customer-name">Lan Chi</td>
-                    <td class="order-date">16/10/2025</td>
-                    <td class="order-total">5.500.000₫</td>
-                    <td><span class="status-badge status-red">Đã hủy</span></td>
-                    <td><a href="#" class="action-link view-detail">Xem chi tiết</a></td>
-                  </tr>
-
-                  <tr class="table-row">
-                    <th class="order-id" scope="row">#TECH1021</th>
-                    <td class="customer-name">Hoàng Nam</td>
-                    <td class="order-date">15/10/2025</td>
-                    <td class="order-total">18.990.000₫</td>
-                    <td><span class="status-badge status-sky">Đang giao</span></td>
-                    <td><a href="#" class="action-link view-detail">Xem chi tiết</a></td>
-                  </tr>
+                  <asp:Literal ID="ltOrdersRows" runat="server"></asp:Literal>
                 </tbody>
               </table>
             </div>

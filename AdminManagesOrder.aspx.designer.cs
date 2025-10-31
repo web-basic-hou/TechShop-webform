@@ -7,10 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TechShop {
+namespace TechShop
+{
 
 
-    public partial class AdminManagesOrder {
+    public partial class AdminManagesOrder
+    {
 
         /// <summary>
         /// form1 control.
@@ -38,5 +40,14 @@ namespace TechShop {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litAdminName;
+
+        /// <summary>
+        /// ltOrdersRows control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltOrdersRows;
     }
 }

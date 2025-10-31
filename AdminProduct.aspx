@@ -87,48 +87,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <!-- Ví dụ dữ liệu tĩnh, bạn sẽ render từ DB thực tế -->
-                  <tr class="table-row">
-                    <td><img src="https://placehold.co/80x80/e2e8f0/334155?text=SP" class="product-image" alt="SP" /></td>
-                    <th scope="row" class="product-name">iPhone 15 Pro Max 256GB</th>
-                    <td class="product-price">30.990.000₫</td>
-                    <td>120</td>
-                    <td><span class="status-badge status-green">Đang bán</span></td>
-                    <td class="actions-cell">
-                      <div class="actions-group">
-                        <a href="#" class="action-link action-edit">Sửa</a>
-                        <a href="#" class="action-link action-delete">Xóa</a>
-                      </div>
-                    </td>
-                  </tr>
-
-                  <tr class="table-row">
-                    <td><img src="https://placehold.co/80x80/e2e8f0/334155?text=SP" class="product-image" alt="SP" /></td>
-                    <th scope="row" class="product-name">Samsung Galaxy S23 Ultra</th>
-                    <td class="product-price">25.490.000₫</td>
-                    <td>85</td>
-                    <td><span class="status-badge status-green">Đang bán</span></td>
-                    <td class="actions-cell">
-                      <div class="actions-group">
-                        <a href="#" class="action-link action-edit">Sửa</a>
-                        <a href="#" class="action-link action-delete">Xóa</a>
-                      </div>
-                    </td>
-                  </tr>
-
-                  <tr class="table-row">
-                    <td><img src="https://placehold.co/80x80/e2e8f0/334155?text=SP" class="product-image" alt="SP" /></td>
-                    <th scope="row" class="product-name">Xiaomi 13T Pro 5G</th>
-                    <td class="product-price">15.990.000₫</td>
-                    <td>200</td>
-                    <td><span class="status-badge status-slate">Ẩn</span></td>
-                    <td class="actions-cell">
-                      <div class="actions-group">
-                        <a href="#" class="action-link action-edit">Sửa</a>
-                        <a href="#" class="action-link action-delete">Xóa</a>
-                      </div>
-                    </td>
-                  </tr>
+                  <asp:Literal ID="ltProductsRows" runat="server"></asp:Literal>
                 </tbody>
               </table>
             </div>

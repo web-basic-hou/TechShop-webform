@@ -82,54 +82,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <!-- static demo rows — replace with Repeater/GridView in production -->
-                  <tr class="table-row">
-                    <th scope="row" class="customer-info">
-                      <img class="customer-avatar" src="https://placehold.co/100x100/dbeafe/1e40af?text=BA" alt="BA" />
-                      <span class="customer-name">Bình An</span>
-                    </th>
-                    <td class="customer-email">binhan@example.com</td>
-                    <td class="customer-phone">090xxxx123</td>
-                    <td class="customer-joined">17/10/2025</td>
-                    <td class="total-spent">30.990.000₫</td>
-                    <td><a href="#" class="action-link view-detail">Xem chi tiết</a></td>
-                  </tr>
-
-                  <tr class="table-row">
-                    <th scope="row" class="customer-info">
-                      <img class="customer-avatar" src="https://placehold.co/100x100/d1fae5/065f46?text=MT" alt="MT" />
-                      <span class="customer-name">Minh Tuấn</span>
-                    </th>
-                    <td class="customer-email">minhtuan@example.com</td>
-                    <td class="customer-phone">091xxxx456</td>
-                    <td class="customer-joined">17/10/2025</td>
-                    <td class="total-spent">25.490.000₫</td>
-                    <td><a href="#" class="action-link view-detail">Xem chi tiết</a></td>
-                  </tr>
-
-                  <tr class="table-row">
-                    <th scope="row" class="customer-info">
-                      <img class="customer-avatar" src="https://placehold.co/100x100/fee2e2/991b1b?text=LC" alt="LC" />
-                      <span class="customer-name">Lan Chi</span>
-                    </th>
-                    <td class="customer-email">lanchi@example.com</td>
-                    <td class="customer-phone">098xxxx789</td>
-                    <td class="customer-joined">16/10/2025</td>
-                    <td class="total-spent">5.500.000₫</td>
-                    <td><a href="#" class="action-link view-detail">Xem chi tiết</a></td>
-                  </tr>
-
-                  <tr class="table-row">
-                    <th scope="row" class="customer-info">
-                      <img class="customer-avatar" src="https://placehold.co/100x100/ffedd5/9a3412?text=HN" alt="HN" />
-                      <span class="customer-name">Hoàng Nam</span>
-                    </th>
-                    <td class="customer-email">hoangnam@example.com</td>
-                    <td class="customer-phone">093xxxx111</td>
-                    <td class="customer-joined">15/10/2025</td>
-                    <td class="total-spent">18.990.000₫</td>
-                    <td><a href="#" class="action-link view-detail">Xem chi tiết</a></td>
-                  </tr>
+                  <asp:Literal ID="ltCustomersRows" runat="server"></asp:Literal>
                 </tbody>
               </table>
             </div>

@@ -7,10 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TechShop {
+namespace TechShop
+{
 
 
-    public partial class AdminProduct {
+    public partial class AdminProduct
+    {
 
         /// <summary>
         /// form1 control.
@@ -47,5 +49,14 @@ namespace TechShop {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAddProduct;
+
+        /// <summary>
+        /// ltProductsRows control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltProductsRows;
     }
 }

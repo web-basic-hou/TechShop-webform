@@ -65,6 +65,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddOrEditProduct.aspx" />
     <Content Include="AdminCustomerManages.aspx" />
     <Content Include="AdminDashboard.aspx" />
     <Content Include="AdminManagesOrder.aspx" />
@@ -102,6 +103,8 @@
     <Content Include="Pay.aspx" />
     <Content Include="Products.aspx" />
     <Content Include="Register.aspx" />
+    <Content Include="Script\adminAddProduct.js" />
+    <Content Include="Styles\AddOrEditProduct.css" />
     <Content Include="Styles\AdminCustomerManages.css" />
     <Content Include="Styles\AdminDashboard.css" />
     <Content Include="Styles\AdminManagesOrder.css" />
@@ -121,6 +124,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddOrEditProduct.aspx.cs">
+      <DependentUpon>AddOrEditProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddOrEditProduct.aspx.designer.cs">
+      <DependentUpon>AddOrEditProduct.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdminCustomerManages.aspx.cs">
       <DependentUpon>AdminCustomerManages.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
