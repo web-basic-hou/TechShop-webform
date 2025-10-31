@@ -40,11 +40,11 @@
 
         <main>
             <div class="hero-section">
-                <img src="./Asset/images/ssung.png" alt="Banner quảng cáo" class="hero-image">
+                <img src="./Asset/images/bannerssa55.jpg" alt="Banner quảng cáo" class="hero-image">
                 <div class="hero-content">
-                    <h1 class="hero-title">iPhone 15 Series</h1>
-                    <p class="hero-subtitle">Trải nghiệm đỉnh cao công nghệ với chip A17 Pro, khung viền Titan và camera đột phá.</p>
-                    <a href="DetailProduct.aspx" class="hero-button">Mua ngay</a>
+                    <h1 class="hero-title">Samsung Galaxy A55 5G</h1>
+                    <p class="hero-subtitle">Galaxy A55 5G có thiết kế khung kim loại, hiệu năng tốt và camera 50MP chất lượng cao.</p>
+                    <a href="DetailProduct.aspx?id=16" class="hero-button">Mua ngay</a>
                 </div>
             </div>
 

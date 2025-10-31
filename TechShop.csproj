@@ -72,6 +72,8 @@
     <Content Include="Asset\icons\handshake.png" />
     <Content Include="Asset\icons\rocket-lunch.png" />
     <Content Include="Asset\icons\shield-check.png" />
+    <Content Include="Asset\images\bannerSS.jpg" />
+    <Content Include="Asset\images\bannerssa55.jpg" />
     <Content Include="Asset\images\cucGach.png" />
     <Content Include="Asset\images\cucGach2.png" />
     <Content Include="Asset\images\cucGachReal.png" />

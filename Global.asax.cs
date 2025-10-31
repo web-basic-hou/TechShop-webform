@@ -180,7 +180,7 @@ namespace TechShop
                     describe = "iPhone 17 Pro Max 256 GB sở hữu màn hình 6.9 inch Super Retina XDR OLED siêu sắc nét với công nghệ ProMotion 120Hz. Trang bị chip A19 Pro mạnh mẽ cho hiệu năng đỉnh cao. Hệ thống ba camera 48MP – cảm biến chính, siêu rộng và ống kính telephoto – hỗ trợ chế độ chụp đêm, Cinematic và quay video 4K/8K chất lượng cao. Thiết kế khung nhôm unibody/kim loại cao cấp, hỗ trợ mạng 5G, chuyển sang cổng USB‑C và khả năng chống nước/bụi chuẩn IP68.",
 
                     specification = "Kích thước màn hình: 6.9 inches | Công nghệ màn hình: Super Retina XDR OLED | Camera sau: Chính 48 MP & Phụ 48 MP, 48 MP | Camera trước: 18 MP | Chipset: Apple A19 Pro 6 nhân | Bộ nhớ trong: 256 GB | Pin: 5,088 mAh | Thẻ SIM: 2 SIM (nano‑SIM + eSIM) | Hệ điều hành: iOS 26 | Độ phân giải màn hình: 1320 x 2868 pixels",
-                    imageUrl = "~/Asset/images/ip4.png",
+                    imageUrl = "~/Asset/images/ip4.jpg",
                     rateList = new List<Rates>()
                 }
             );

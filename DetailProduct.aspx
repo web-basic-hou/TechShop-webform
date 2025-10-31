@@ -88,7 +88,7 @@
                                 </a>
                                 <div class="related-info">
                                     <h3 class="related-name"><%# Eval("productName") %></h3>
-                                    <p class="related-price"><%# Eval("value") %></p>
+                                    <p class="related-price"><%# string.Format("{0:N0} vnđ", Eval("value")) %></p>
                                 </div>
                             </div>
                         </ItemTemplate>
