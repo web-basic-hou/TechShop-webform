@@ -103,12 +103,12 @@ namespace TechShop
 
                     sb.Append("<tr class=\"table-row\" data-id=\"" + id + "\">");
 
-                    sb.AppendFormat("<td><img src=\"{0}\" class=\"product-image\" alt=\"{1}\" /></td>", imageUrl, name);
+                    sb.AppendFormat("<td><img src=\"{0}\" class=\"product-image\" alt=\"{1}\" /></td>", ResolveUrl(imageUrl.ToString()), name);
 
                     sb.Append("<th scope=\"row\" class=\"product-name\">");
                     sb.AppendFormat("<div class=\"product-name-main\">{0}</div>", name);
-                    sb.AppendFormat("<div class=\"product-meta\" style=\"font-size:0.85rem;color:#6b7280;margin-top:6px;\">{0}</div>", descShort);
-                    sb.AppendFormat("<div class=\"product-stats\" style=\"font-size:0.8rem;color:#9ca3af;margin-top:6px;\">Đã bán: {0} &nbsp;|&nbsp; Đánh giá: {1}</div>", qty, rateCount);
+                    sb.AppendFormat("<div class=\"product-meta\" style=\"font-size:0.5rem;color:#6b7280;margin-top:6px;\">{0}</div>", descShort);
+                    sb.AppendFormat("<div class=\"product-stats\" style=\"font-size:0.3rem;color:#9ca3af;margin-top:6px;\">Đã bán: {0} &nbsp;|&nbsp; Đánh giá: {1}</div>", qty, rateCount);
                     sb.Append("</th>");
 
                     sb.AppendFormat("<td class=\"product-price\">{0}</td>", HttpUtility.HtmlEncode(priceText));

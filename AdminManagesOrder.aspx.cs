@@ -114,8 +114,8 @@ namespace TechShop
                     }
 
                     var orderCode = $"#TECH{orderId}";
+                    var viewUrl = $"/AdminOrderDetails.aspx?id={orderId}";
 
-                    var viewUrl = $"AdminOrderDetail.aspx?orderId={orderId}";
                     // action links để đổi trạng thái (ví dụ mark as DELIVERY hoặc RECEIVED)
                     var setDeliveryUrl = $"AdminManagesOrder.aspx?setStatus=DELIVERY&orderId={orderId}";
                     var setReceivedUrl = $"AdminManagesOrder.aspx?setStatus=RECEIVED&orderId={orderId}";
@@ -130,6 +130,9 @@ namespace TechShop
                     sb.AppendFormat("<td><span class=\"{0}\">{1}</span></td>", statusClass, HttpUtility.HtmlEncode(statusText));
 
                     sb.Append("<td>");
+                    // Thêm link Xem chi tiết
+                    sb.AppendFormat("<a href=\"{0}\" class=\"action-link\">Xem</a> &nbsp;|&nbsp; ", viewUrl);
+
                     // Tùy theo trạng thái hiện tại, hiển thị các action phù hợp
                     if (distinctStatuses.Count == 1 && distinctStatuses[0] == "CART")
                     {
@@ -157,7 +160,6 @@ namespace TechShop
             ltOrdersRows.Text = sb.ToString();
         }
 
-        // Helper: map mã trạng thái -> label hiển thị
         private string MapStatusToLabel(string status)
         {
             if (string.IsNullOrEmpty(status)) return "Chưa cập nhật";

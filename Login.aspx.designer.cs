@@ -7,10 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TechShop {
+namespace TechShop
+{
 
 
-    public partial class Login {
+    public partial class Login
+    {
 
         /// <summary>
         /// form1 control.
@@ -49,6 +51,15 @@ namespace TechShop {
         protected global::System.Web.UI.WebControls.Label lblErrorEmail;
 
         /// <summary>
+        /// lblPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPassword;
+
+        /// <summary>
         /// txtPassword control.
         /// </summary>
         /// <remarks>
@@ -65,15 +76,6 @@ namespace TechShop {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblErrorPassword;
-
-        /// <summary>
-        /// lblPassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPassword;
 
         /// <summary>
         /// btnLogin control.

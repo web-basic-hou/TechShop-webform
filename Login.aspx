@@ -43,11 +43,11 @@
                     </div>
 
                     <div class="form-group">
+                        <asp:Label ID="lblPassword" runat="server" For="txtPassword" CssClass="form-label">Mật khẩu</asp:Label>
                         <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" autocomplete="current-password" required CssClass="form-input" placeholder="••••••••"></asp:TextBox>
                         <asp:Label ID="lblErrorPassword" runat="server" CssClass="error" />
 
                         <div class="label-row">
-                            <asp:Label ID="lblPassword" runat="server" For="txtPassword" CssClass="form-label">Mật khẩu</asp:Label>
                             <a href="#" class="link">Quên mật khẩu?</a>
                         </div>
                     </div>

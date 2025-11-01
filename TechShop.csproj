@@ -69,6 +69,7 @@
     <Content Include="AdminCustomerManages.aspx" />
     <Content Include="AdminDashboard.aspx" />
     <Content Include="AdminManagesOrder.aspx" />
+    <Content Include="AdminOrderDetails.aspx" />
     <Content Include="AdminProduct.aspx" />
     <Content Include="Asset\icons\handshake.png" />
     <Content Include="Asset\icons\rocket-lunch.png" />
@@ -108,6 +109,7 @@
     <Content Include="Styles\AdminCustomerManages.css" />
     <Content Include="Styles\AdminDashboard.css" />
     <Content Include="Styles\AdminManagesOrder.css" />
+    <Content Include="Styles\AdminOrderDetails.css" />
     <Content Include="Styles\AdminProduct.css" />
     <Content Include="Styles\Cart.css" />
     <Content Include="Styles\Contact.css" />
@@ -151,6 +153,13 @@
     </Compile>
     <Compile Include="AdminManagesOrder.aspx.designer.cs">
       <DependentUpon>AdminManagesOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminOrderDetails.aspx.cs">
+      <DependentUpon>AdminOrderDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminOrderDetails.aspx.designer.cs">
+      <DependentUpon>AdminOrderDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminProduct.aspx.cs">
       <DependentUpon>AdminProduct.aspx</DependentUpon>

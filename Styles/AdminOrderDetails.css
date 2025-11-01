@@ -1,0 +1,261 @@
+﻿/* ========== Cấu hình chung ========== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: #f6f7fb;
+    color: #333;
+}
+
+/* ========== Layout chính ========== */
+.body-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 240px;
+    background-color: #111827;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.sidebar-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-left: 0.5rem;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.nav-item {
+    padding: 0.6rem 0.8rem;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #d1d5db;
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+    .nav-item:hover {
+        background-color: #374151;
+        color: #fff;
+    }
+
+    .nav-item.active {
+        background-color: #2563eb;
+        color: #fff;
+    }
+
+.logout-btn {
+    background-color: #dc2626;
+    color: #fff;
+    border: none;
+    padding: 0.7rem 0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+    .logout-btn:hover {
+        background-color: #b91c1c;
+    }
+
+/* ========== Main Content ========== */
+.main-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background: #fff;
+    padding: 1rem 2rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.header-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.content-area {
+    padding: 2rem;
+}
+
+/* ========== Card & sections ========== */
+.card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.card-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.btn-back,
+.btn-print,
+.btn-update {
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.btn-back {
+    background: #e5e7eb;
+    color: #111;
+    padding: 0.5rem 1rem;
+}
+
+    .btn-back:hover {
+        background: #d1d5db;
+    }
+
+.btn-print {
+    background: #10b981;
+    color: #fff;
+    padding: 0.5rem 1rem;
+}
+
+    .btn-print:hover {
+        background: #059669;
+    }
+
+.btn-update {
+    background: #2563eb;
+    color: #fff;
+    padding: 0.45rem 1rem;
+    margin-left: 0.5rem;
+}
+
+    .btn-update:hover {
+        background: #1d4ed8;
+    }
+
+/* ========== Order summary ========== */
+.order-summary {
+    margin-bottom: 2rem;
+}
+
+    .order-summary h2 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: #111827;
+    }
+
+    .order-summary .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 0.75rem;
+    }
+
+    .order-summary label {
+        font-weight: 500;
+        color: #374151;
+    }
+
+.select-status {
+    padding: 0.4rem;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    margin-left: 0.5rem;
+}
+
+/* ========== Table ========== */
+.items-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+    .items-table thead {
+        background: #f3f4f6;
+    }
+
+    .items-table th,
+    .items-table td {
+        padding: 0.75rem;
+        border-bottom: 1px solid #e5e7eb;
+        text-align: left;
+    }
+
+    .items-table th {
+        font-weight: 600;
+        color: #111827;
+    }
+
+    .items-table td.right {
+        text-align: right;
+    }
+
+    .items-table td.center {
+        text-align: center;
+    }
+
+/* ========== Totals ========== */
+.order-totals {
+    margin-top: 2rem;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 1rem;
+    font-size: 1.05rem;
+}
+
+.totals-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.3rem 0;
+}
+
+    .totals-row.total {
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: #2563eb;
+    }
+
+/* ========== Responsive ========== */
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+
+    .main-container {
+        padding: 0;
+    }
+
+    .content-area {
+        padding: 1rem;
+    }
+
+    .order-summary .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 1rem;
+    }
+}

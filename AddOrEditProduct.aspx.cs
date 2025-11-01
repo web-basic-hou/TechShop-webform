@@ -184,47 +184,63 @@ namespace TechShop
                 }
                 else if (!string.IsNullOrEmpty(imageUrl))
                 {
-                    // Kiểm tra xem người dùng có nhập đường dẫn local (C:\ hoặc file://) hay không
-                    bool looksLikeLocalPath = IsLocalPathString(imageUrl);
-
-                    if (looksLikeLocalPath)
+                    // Nếu người dùng nhập đường dẫn bắt đầu bằng ~/ hoặc / -> coi là đường dẫn server (giữ / resolve)
+                    if (imageUrl.StartsWith("~") || imageUrl.StartsWith("/"))
                     {
-                        // Server không thể truy cập file cục bộ của client -> bắt người dùng upload
-                        ValidationSummary1.HeaderText = "Không chấp nhận đường dẫn ảnh cục bộ (ví dụ C:\\...). Vui lòng dùng nút 'Chọn file' để upload ảnh từ máy.";
-                        return;
-                    }
-
-                    // Nếu là URL http/https -> cố gắng tải về và lưu vào ~/Uploads/
-                    if (Uri.TryCreate(imageUrl, UriKind.Absolute, out Uri uri) && (uri.Scheme == Uri.UriSchemeHttp || uri.Scheme == Uri.UriSchemeHttps))
-                    {
+                        // chuyển ~ hoặc root-relative sang đường dẫn hợp lệ cho client
                         try
                         {
-                            using (var wc = new WebClient())
-                            {
-                                byte[] data = wc.DownloadData(imageUrl);
-
-                                var ext = Path.GetExtension(uri.LocalPath);
-                                if (string.IsNullOrEmpty(ext) || ext.Length > 5) ext = ".jpg"; // fallback
-                                var safeName = $"{DateTime.Now:yyyyMMddHHmmss}_{Path.GetFileNameWithoutExtension(Path.GetRandomFileName())}{ext}";
-                                var uploadsFolder = Server.MapPath("~/Uploads/");
-                                if (!Directory.Exists(uploadsFolder)) Directory.CreateDirectory(uploadsFolder);
-                                var savePath = Path.Combine(uploadsFolder, safeName);
-                                File.WriteAllBytes(savePath, data);
-
-                                imageUrl = ResolveUrl($"~/Uploads/{safeName}");
-                            }
+                            imageUrl = ResolveUrl(imageUrl);
                         }
-                        catch (Exception ex)
+                        catch
                         {
-                            ValidationSummary1.HeaderText = "Không thể tải ảnh từ URL đã cung cấp: " + ex.Message;
-                            return;
+                            // fallback: giữ nguyên chuỗi
                         }
                     }
                     else
                     {
-                        // Không phải URL hợp lệ -> từ chối ghi trực tiếp chuỗi (tránh lưu đường dẫn cục bộ)
-                        ValidationSummary1.HeaderText = "Đường dẫn ảnh không hợp lệ. Vui lòng upload ảnh hoặc nhập URL http/https hợp lệ.";
-                        return;
+                        // Kiểm tra xem người dùng có nhập đường dẫn local (C:\ hoặc file://) hay không
+                        bool looksLikeLocalPath = IsLocalPathString(imageUrl);
+
+                        if (looksLikeLocalPath)
+                        {
+                            // Server không thể truy cập file cục bộ của client -> bắt người dùng upload
+                            ValidationSummary1.HeaderText = "Không chấp nhận đường dẫn ảnh cục bộ (ví dụ C:\\...). Vui lòng dùng nút 'Chọn file' để upload ảnh từ máy.";
+                            return;
+                        }
+
+                        // Nếu là URL http/https -> cố gắng tải về và lưu vào ~/Uploads/
+                        if (Uri.TryCreate(imageUrl, UriKind.Absolute, out Uri uri) && (uri.Scheme == Uri.UriSchemeHttp || uri.Scheme == Uri.UriSchemeHttps))
+                        {
+                            try
+                            {
+                                using (var wc = new WebClient())
+                                {
+                                    byte[] data = wc.DownloadData(imageUrl);
+
+                                    var ext = Path.GetExtension(uri.LocalPath);
+                                    if (string.IsNullOrEmpty(ext) || ext.Length > 5) ext = ".jpg"; // fallback
+                                    var safeName = $"{DateTime.Now:yyyyMMddHHmmss}_{Path.GetFileNameWithoutExtension(Path.GetRandomFileName())}{ext}";
+                                    var uploadsFolder = Server.MapPath("~/Uploads/");
+                                    if (!Directory.Exists(uploadsFolder)) Directory.CreateDirectory(uploadsFolder);
+                                    var savePath = Path.Combine(uploadsFolder, safeName);
+                                    File.WriteAllBytes(savePath, data);
+
+                                    imageUrl = ResolveUrl($"~/Uploads/{safeName}");
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                ValidationSummary1.HeaderText = "Không thể tải ảnh từ URL đã cung cấp: " + ex.Message;
+                                return;
+                            }
+                        }
+                        else
+                        {
+                            // Không phải URL http/https, không phải root-relative -> từ chối
+                            ValidationSummary1.HeaderText = "Đường dẫn ảnh không hợp lệ. Vui lòng upload ảnh hoặc nhập URL http/https hợp lệ, hoặc sử dụng đường dẫn bắt đầu bằng '/' hoặc '~/'.";
+                            return;
+                        }
                     }
                 }
                 else
